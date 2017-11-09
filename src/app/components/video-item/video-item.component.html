@@ -1,0 +1,28 @@
+<section>
+  <article>
+    <div class="container">
+      <div class="full-width fade-in">
+        <a routerLink="/">
+          < Back to list of videos</a>
+      </div>
+      <h2 id="title" class="full-width"> {{title}}</h2>
+      <p class="full-width published fade-in">
+        Published on {{publishedDate | dateFilter}}
+      </p>
+    </div>
+
+    <div class="container fade-in">
+      <div wrap>
+        <iframe class="frame" [src]="url" height="315" width="560" frameborder="0" allowfullscreen>
+          </iframe>
+      </div>
+
+      <div class="content flex-item">
+        <p>
+          {{description}}
+        </p>
+      </div>
+    </div>
+
+  </article>
+</section>

@@ -1,0 +1,29 @@
+<div class="container">
+  <header>
+    <h1>
+      My YouTube Playlist
+    </h1>
+  </header>
+</div>
+
+<section>
+  <article *ngFor="let item of playlist?.items" class="container">
+    <div class="content flex-item" *ngIf="item.snippet.thumbnails" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)">
+      <figure>
+        <img src={{item.snippet.thumbnails?.medium.url}} alt={{item.snippet.thumbnails?.medium.url}}/>
+      </figure>
+    </div>
+
+    <div class="content flex-item" *ngIf="item.snippet.thumbnails">
+      <header>
+        <h2 id="title" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)">
+          {{item.snippet.title}}
+        </h2>
+      </header>
+      <p class="published full-width">
+        Published on {{item.snippet.publishedAt | dateFilter}}
+      </p>
+      <p class="description"> {{item.snippet.description | truncate}}</p>
+    </div>
+  </article>
+</section>

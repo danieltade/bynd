@@ -1,28 +1,102 @@
-<section>
-  <article>
-    <div class="container">
-      <div class="full-width fade-in">
-        <a routerLink="/">
-          < Back to list of videos</a>
+<div id="container">
+
+  <div id="content">
+
+    <!---banner =========================== -->
+    <div class="page-banner-section banner">
+      <div class="container">
+        <h1>My YouTube Playlist</h1>
       </div>
-      <h2 id="title" class="full-width"> {{title}}</h2>
-      <p class="full-width published fade-in">
-        Published on {{publishedDate | dateFilter}}
-      </p>
     </div>
 
-    <div class="container fade-in">
-      <div wrap>
-        <iframe class="frame" [src]="url" height="315" width="560" frameborder="0" allowfullscreen>
-          </iframe>
-      </div>
-
-      <div class="content flex-item">
-        <p>
-          {{description}}
+    <!-- video-item
+				================================================== -->
+    <div class="section-container tracks-section">
+      <div class="container">
+        <p class="mb-20">
+          <a routerLink="/">
+            < Back to list of videos</a>
         </p>
+        <div class="tracks-with-sidebar">
+          <div class="row">
+            <div class="col-md-3 col-sm-4">
+              <div class="sidebar">
+                <div class="popular-widget widget">
+                  <h2>Popular tracks</h2>
+                  <ul class="popular-list">
+                    <li>
+                      <img alt="play image" src="assets/images/play.jpg">
+                      <div class="side-content">
+                        <h2><a href=""> Artist name </a></h2>
+                        <p>Track name</p>
+                      </div>
+                    </li>
+                    <li>
+                      <img alt="play image" src="assets/images/play.jpg">
+                      <div class="side-content">
+                        <h2><a href=""> Artist name </a></h2>
+                        <p>Track name</p>
+                      </div>
+                    </li>
+                    <li>
+                      <img alt="play image" src="assets/images/play.jpg">
+                      <div class="side-content">
+                        <h2><a href=""> Artist name </a></h2>
+                        <p>Track name</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="other-widget widget">
+                  <h2>Information widget</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. </p>
+                </div>
+                <div class="tags-widget widget">
+                  <h2>Your recently searched tracks</h2>
+                  <ul class="tracks-list">
+                    <li><a href="#">Track 1</a></li>
+                    <li><a href="#">Track 2</a></li>
+                    <li><a href="#">Track 3</a></li>
+                    <li><a href="#">Track 4</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-9 col-sm-8">
+              <div class="box-container">
+                <div class="content-box">
+                  <div class="content-title">
+                    <h2>{{title}}</h2>
+                    <p class="content-sub">
+                      Published on {{publishedDate | dateFilter}}
+                    </p>
+                  </div>
+                  <!-- Vimeo -->
+                  <iframe class="videoembed" [src]="url" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                  <!-- End Vimeo -->
+                  <div class="content-description">
+                    <p> {{description}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-  </article>
-</section>
+    <!-- footer 
+			================================================== -->
+    <footer>
+      <div class="base-block">
+        <div class="container">
+          <p>&copy; Copyright 2017. Daniel Tade's test for bynd. All rights reserved.</p>
+        </div>
+      </div>
+
+    </footer>
+    <!-- End footer -->
+  </div>

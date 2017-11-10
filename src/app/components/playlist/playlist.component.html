@@ -1,29 +1,109 @@
-<div class="container">
-  <header>
-    <h1>
-      My YouTube Playlist
-    </h1>
-  </header>
-</div>
+<div id="container">
 
-<section>
-  <article *ngFor="let item of playlist?.items" class="container">
-    <div class="content flex-item" *ngIf="item.snippet.thumbnails" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)">
-      <figure>
-        <img src={{item.snippet.thumbnails?.medium.url}} alt={{item.snippet.thumbnails?.medium.url}}/>
-      </figure>
+  <div id="content">
+
+    <!---banner =========================== -->
+    <div class="section-container page-banner-section banner">
+      <div class="container">
+        <header>
+          <h1 class="white">My YouTube Playlist</h1>
+        </header>
+      </div>
     </div>
 
-    <div class="content flex-item" *ngIf="item.snippet.thumbnails">
-      <header>
-        <h2 id="title" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)">
-          {{item.snippet.title}}
-        </h2>
-      </header>
-      <p class="published full-width">
-        Published on {{item.snippet.publishedAt | dateFilter}}
-      </p>
-      <p class="description"> {{item.snippet.description | truncate}}</p>
+    <!-- play-list
+				================================================== -->
+    <div class="section-container tracks-section">
+      <div class="container">
+        <div class="tracks-with-sidebar">
+          <div class="row">
+            <div class="col-md-3 col-sm-4">
+              <div class="sidebar">
+                <div class="category-widget widget">
+                  <h2>Genre</h2>
+                  <ul class="category-list">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Pop</a></li>
+                    <li><a href="#">Classical</a></li>
+                    <li><a href="#">Electronic</a></li>
+                    <li><a href="#">R & B</a></li>
+                  </ul>
+                </div>
+                <div class="popular-widget widget">
+                  <h2>Popular tracks</h2>
+                  <ul class="popular-list">
+                    <li>
+                      <img alt="play image" src="assets/images/play.jpg">
+                      <div class="side-content">
+                        <h2><a href=""> Artist name </a></h2>
+                        <p>Track name</p>
+                      </div>
+                    </li>
+                    <li>
+                      <img alt="play image" src="assets/images/play.jpg">
+                      <div class="side-content">
+                        <h2><a href=""> Artist name </a></h2>
+                        <p>Track name</p>
+                      </div>
+                    </li>
+                    <li>
+                      <img alt="play image" src="assets/images/play.jpg">
+                      <div class="side-content">
+                        <h2><a href=""> Artist name </a></h2>
+                        <p>Track name</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="other-widget widget">
+                  <h2>Information widget</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. </p>
+                </div>
+                <div class="tags-widget widget">
+                  <h2>Similar tracks you may like</h2>
+                  <ul class="tracks-list">
+                    <li><a href="#">Track 1</a></li>
+                    <li><a href="#">Track 2</a></li>
+                    <li><a href="#">Track 3</a></li>
+                    <li><a href="#">Track 4</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-9 col-sm-8">
+              <div class="box-container">
+                <article *ngFor="let item of playlist?.items">
+                  <div class="content-box" *ngIf="item.snippet.thumbnails">
+                    <div class="content-title">
+                      <h2 class="pointer" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)"> {{item.snippet.title}} </h2>
+                      <p class="content-sub"> Published on {{item.snippet.publishedAt | dateFilter}}</p>
+                    </div>
+                    <img [src]=item.snippet.thumbnails?.medium.url [alt]=item.snippet.thumbnails?.medium.url class="pointer" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)">
+                    <div class="content-description">
+                      <p>{{item.snippet.description | truncate}}</p>
+                      <a class="pointer" (click)="goToVideoPlay(item.contentDetails.videoId, item.snippet.title, item.snippet.publishedAt, item.snippet.description)">Watch video</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </article>
-</section>
+
+    <!-- footer 
+			================================================== -->
+    <footer>
+      <div class="base-block">
+        <div class="container">
+          <p>&copy; Copyright 2017. Daniel Tade's test for bynd. All rights reserved.</p>
+        </div>
+      </div>
+
+    </footer>
+    <!-- End footer -->
+  </div>
